@@ -1,0 +1,11 @@
+body {
+    background-color: #181a1b;
+}
+
+p, th, td, label, li {
+    color: #e8e6e3 !important;
+}
+
+ul {
+    list-style: none;
+}

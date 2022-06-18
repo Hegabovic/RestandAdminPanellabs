@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} {{ actor.actor_name }} details {% endblock %}
+
+{% block body_content %}
+    <div class="container my-5">
+        <div class="card bg-dark">
+            <p class="h5 card-header">{{ actor.actor_name }}</p>
+            <div class="card-body">
+                <p class="h5 card-title">Gender</p>
+                <p class="card-text">{{ actor.gender }}</p>
+                <p class="h5 card-title">Age</p>
+                <p class="card-text">{{ actor.age }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

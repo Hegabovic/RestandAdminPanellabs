@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %} actors {% endblock %}
+
+{% block body_content %}
+    <div class="container">
+        <div class="mt-5 mb-3 d-flex">
+            <p class="h2 mx-4">Actors</p>
+            <a href='{% url 'actors:add' %}'>
+                <button type="button" class="btn btn-sm btn-success">add</button>
+            </a>
+        </div>
+        <table class="table table-striped text-center align-middle">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>age</th>
+                <th>Gender</th>
+                <th>options</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for actor in actors %}
+                <tr>
+                    <td> {{ actor.id }}</td>
+                    <td> {{ actor.actor_name }}</td>
+                    <td> {{ actor.age }}</td>
+                    <td> {{ actor.gender }}</td>
+
+                    <td>
+                        <a href='{% url "actors:details" actor.id %}'>
+                            <button class="btn btn-info mx-2"> details</button>
+                        </a>
+                        <a href='{% url "actors:edit" actor.id %}'>
+                            <button class="btn btn-success mx-2"> edit</button>
+                        </a>
+                        <a href='{% url "actors:delete" actor.id %}'>
+                            <button class="btn btn-danger mx-2"> delete</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
